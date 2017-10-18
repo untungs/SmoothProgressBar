@@ -180,6 +180,7 @@ public class CircularProgressDrawable
     @CircularProgressDrawable.Style
     int mStyle;
     private PowerManager mPowerManager;
+    private boolean mUseGradient = false;
 
     public Builder(@NonNull Context context) {
       this(context, false);
@@ -264,6 +265,12 @@ public class CircularProgressDrawable
       return this;
     }
 
+    public Builder useGradient(boolean useGradient)
+    {
+      mUseGradient = useGradient;
+      return this;
+    }
+
     public CircularProgressDrawable build() {
       return new CircularProgressDrawable(
           mPowerManager,
@@ -275,7 +282,8 @@ public class CircularProgressDrawable
               mRotationSpeed,
               mMinSweepAngle,
               mMaxSweepAngle,
-              mStyle));
+              mStyle,
+              mUseGradient));
     }
   }
 }
